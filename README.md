@@ -1,17 +1,10 @@
 # Notes App
 
-Cassandra node must be alive on localhost:9042
-
-It needs to have keyspaces as specified in **schema.cql**
-
-Project JDK which I've been using:
- **openjdk 11.0.7**
+Use `docker-compose up` to start cassandra and initialize a keyspace.
 
 ## API
 
-sample requests:
-
-`/src/test/kotlin/clebre/notes/sample_requests.http`
+sample requests are in this file: `/src/test/kotlin/clebre/notes/sample_requests.http`
 
 POST /api/notes
 
