@@ -1,0 +1,14 @@
+version: '2'
+services:
+  cassandradb:
+    container_name: cassandra
+    image: cassandra:3.11.1
+    restart: always
+    ports:
+      - "9042:9042"
+
+  cassandra-init:
+    container_name: cassandra-keyspace-init
+    build:
+      context: ./docker/keyspace-init
+    command: /bin/bash -c "sleep 30 && echo loading cassandra keyspace && cqlsh cassandra -f /keyspaces.cql"
