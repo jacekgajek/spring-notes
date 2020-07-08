@@ -9,6 +9,7 @@ services:
 
   cassandra-init:
     container_name: cassandra-keyspace-init
+    restart: on-failure
     build:
       context: ./docker/keyspace-init
-    command: /bin/bash -c "sleep 30 && echo loading cassandra keyspace && cqlsh cassandra -f /keyspaces.cql"
+    command: /bin/bash -c "echo Waiting for cassandra... && sleep 40 && echo loading cassandra keyspace && cqlsh cassandra -f /keyspaces.cql"
