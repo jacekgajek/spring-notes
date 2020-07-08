@@ -7,13 +7,11 @@ import java.util.*
 class NoteCrudService(val notesRepository: NotesRepository) {
 
     fun delete(id: UUID) : Boolean {
-        return when (notesRepository.existsById(id)) {
-            true -> {
-                notesRepository.deleteById(id)
-                true
-            }
-            false -> false
+        val exists = notesRepository.existsById(id)
+        if (exists) {
+            notesRepository.deleteById(id)
         }
+        return exists;
     }
 
     fun save(note: Note) : Note {
