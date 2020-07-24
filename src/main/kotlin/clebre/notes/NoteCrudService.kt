@@ -15,7 +15,7 @@ class NoteCrudService(val notesRepository: NotesRepository) {
     }
 
     fun save(note: Note) : Note {
-        return notesRepository.save(note.copy(id = UUID.randomUUID()))
+        return notesRepository.save(note)
     }
 
     fun all() : List<Note> {

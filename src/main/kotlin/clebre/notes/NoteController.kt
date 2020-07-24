@@ -25,7 +25,7 @@ class NoteController(val crud: NoteCrudService) {
     fun deleteNote(@PathVariable("id") id: UUID) : ResponseEntity<UUID> {
         return when(crud.delete(id)) {
             true -> ResponseEntity.ok(id)
-            false -> ResponseEntity.badRequest().build()
+            false -> ResponseEntity.notFound().build()
         }
     }
 
@@ -33,17 +33,23 @@ class NoteController(val crud: NoteCrudService) {
     fun getNote(@PathVariable("id") id: UUID) : ResponseEntity<Note> {
         return crud.get(id)
                 .map { ResponseEntity.ok(it) }
-                .orElse(ResponseEntity.badRequest().build() )
+                .orElse(ResponseEntity.notFound().build() )
     }
 
     @PostMapping("/notes")
-    fun createNote(@RequestBody request: Note) : ResponseEntity<Note> {
-        return ResponseEntity.ok(crud.save(request))
+    fun createNote(@RequestBody request: CreateNoteRequest) : ResponseEntity<Note> {
+        return ResponseEntity.ok(crud.save(Note(
+                title = request.title,
+                description = request.description,
+                starred = request.starred
+        )))
     }
 
     @GetMapping("/notes")
     fun getNotes() : ResponseEntity<List<Note>> {
         return ResponseEntity.ok(crud.all())
     }
+
+    data class CreateNoteRequest(val title: String, val description: String, val starred: Boolean = false)
 }
 
