@@ -3,22 +3,18 @@ Content-Type: application/json
 
 {
    "title": "Moja notatka",
-   "description": "Idź na zakupy",
-   "starred": true
+   "description": "Idź na zakupki",
+   "starred": false
 }
 
 ###
-DELETE http://localhost:8080/api/notes/e3a1cc9b-ce3f-4889-80d1-30a6e22d4e64
+DELETE http://localhost:8080/api/notes/b0d89501-d8b6-4328-98e7-a573c2bd99fa
 
 ###
 GET http://localhost:8080/api/notes
 
 ###
 GET http://localhost:8080/api/notes/066588af-1769-4629-a149-c5b712b8615e
-
-###
-
-POST http://localhost:8080/api/testdata
 
 ###
 GET http://localhost:8080/api/ping

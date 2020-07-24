@@ -7,7 +7,7 @@ import java.util.*
 
 
 @Table
-data class Note(@PrimaryKey val id: UUID? = UUID.randomUUID(),
+data class Note(@PrimaryKey val id: UUID = UUID.randomUUID(),
                 val title: String,
                 val description: String,
                 val starred: Boolean = false)
