@@ -13,3 +13,10 @@ services:
     build:
       context: ./docker/keyspace-init
     command: /bin/bash -c "echo Waiting for cassandra... && sleep 40 && echo loading cassandra keyspace && cqlsh cassandra -f /keyspaces.cql"
+
+  mongodb:
+    container_name: mongodb
+    restart: on-failure
+    image: library/mongo:4.4.0
+    ports:
+    - "27017:27017"
