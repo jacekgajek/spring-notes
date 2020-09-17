@@ -1,4 +1,4 @@
-package clebre.notes
+package com.jacekgajek.notes
 
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.CrossOrigin

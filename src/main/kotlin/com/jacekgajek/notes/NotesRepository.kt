@@ -1,4 +1,4 @@
-package clebre.notes
+package com.jacekgajek.notes
 
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.repository.MongoRepository

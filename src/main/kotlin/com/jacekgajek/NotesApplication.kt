@@ -1,4 +1,4 @@
-package clebre.notes
+package com.jacekgajek
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

@@ -1,4 +1,4 @@
-package clebre.notes
+package com.jacekgajek.notes
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotNull
@@ -35,7 +35,7 @@ class NoteCrudServiceTest() {
                 starred = true)).id
         assertNotNull(id)
 
-        val note = crud.get(id!!).orElseThrow()
+        val note = crud.get(id).orElseThrow()
         assertEquals("title", note.title)
         assertEquals("desc", note.description)
         assertEquals(true, note.starred)
@@ -47,11 +47,11 @@ class NoteCrudServiceTest() {
         val id1 = crud.save(Note(
                 title = "title",
                 description = "desc",
-                starred = true)).id!!
+                starred = true)).id
         val id2 = crud.save(Note(
                 title = "title2",
                 description = "desc2",
-                starred = true)).id!!
+                starred = true)).id
 
         assertEquals(2, crud.all().size)
         crud.delete(id1)

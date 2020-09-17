@@ -1,4 +1,4 @@
-package clebre.notes
+package com.jacekgajek.notes
 
 import org.springframework.stereotype.Service
 import java.util.*
